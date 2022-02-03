@@ -94,14 +94,14 @@ architecture sim of h264top is
 	--constant IMGHEIGHT : integer := 2672;
 	--constant IMGSKIP : integer := 8;
 	constant IMGWIDTH : integer := 640;	--sample stuff is 352x288
-	constant IMGHEIGHT : integer := 368;
+	constant IMGHEIGHT : integer := 480;
 	--constant IMGWIDTH : integer := 320;
 	--constant IMGHEIGHT : integer := 128;
 	constant IMGSKIP : integer := 0;		--amount to skip between lines (usually 0)
-	constant MAXFRAMES : integer := 40;	--number of frames to process
+	constant MAXFRAMES : integer := 16;	--number of frames to process
 	constant INITQP : integer := 28;	--0..51
 	constant MAXQP : integer := INITQP;
-	constant IWBITS : integer := 9;		--bits required for IMGWIDTH
+	constant IWBITS : integer := 10;		--bits required for IMGWIDTH
 	--
 	type bytefile is file of character;
 	type Tvideoframe is array (0 to IMGWIDTH-1, 0 to IMGHEIGHT-1) of character;
@@ -1328,7 +1328,8 @@ process		--output
 	--constant hd : std_logic_vector(199 downto 0) := x"AA0000000167420028da0582590000000168ce388000000001";--352x288
 	--constant hd : std_logic_vector(199 downto 0) := x"AA0000000167420028da0504640000000168ce388000000001";--320x128
 	--constant hdsize : integer := 24;
-	constant hd : std_logic_vector(207 downto 0)   := x"AA0000000167420028DA0280BE700000000168ce388000000001";--640x360 (640x368)
+	--constant hd : std_logic_vector(207 downto 0) := x"AA0000000167420028DA0280B6700000000168ce388000000001";--640x360 (640x352)
+	constant hd : std_logic_vector(207 downto 0)   := x"AA0000000167420028DA0280F6700000000168ce388000000001";--640x480 (640x480)
 	constant hdsize : integer := 25;
 	--
 	variable count: integer := 0;
